@@ -125,7 +125,7 @@
             }
             
             if (nuevoValor > 0 && nuevoValor < series) {
-                let descanso = parseInt(ejercicio.descanso);
+                let descanso = parseInt(ejercicio.descanso) || 0;
                 let tiempoRestante = descanso;
                 function actualizarEstado() {
                     if (tiempoRestante > 0) {
