@@ -25,6 +25,12 @@
         .series-completed {
             color: green;
         }
+        .editable-input {
+            border: 1px solid #ccc;
+            padding: 5px;
+            width: 50px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -101,49 +107,28 @@
             rutinaActual.bloques.forEach((bloque, bloqueIdx) => {
                 contenido += `<h5>${bloque.nombre}</h5>`;
                 bloque.ejercicios.forEach((ejercicio, ejercicioIdx) => {
-                    let series = ejercicio.series || 1;
                     contenido += `
                         <div class="card-panel">
                             <p><b>${ejercicio.nombre}</b></p>
-                            <p>${ejercicio.peso} kg - ${series} series x ${ejercicio.repeticiones} repeticiones - ${ejercicio.descanso} descanso</p>
-                            <button class="btn red" onclick="modificarSeries(${bloqueIdx}, ${ejercicioIdx}, -1)">-</button>
-                            <span id="contador-${bloqueIdx}-${ejercicioIdx}" class="series-counter">0/${series}</span>
-                            <button class="btn green" onclick="modificarSeries(${bloqueIdx}, ${ejercicioIdx}, 1)">+</button>
-                            <span id="estado-${bloqueIdx}-${ejercicioIdx}"></span>
+                            <p>
+                                <input type="text" class="editable-input" value="${ejercicio.peso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'peso', this.value)"> kg -
+                                <input type="text" class="editable-input" value="${ejercicio.series}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'series', this.value)"> series x 
+                                <input type="text" class="editable-input" value="${ejercicio.repeticiones}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'repeticiones', this.value)"> repeticiones -
+                                <input type="text" class="editable-input" value="${ejercicio.descanso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'descanso', this.value)"> descanso
+                            </p>
                         </div>`;
                 });
             });
             document.getElementById('contenido-rutina').innerHTML = contenido;
         }
 
-        function modificarSeries(bloqueIdx, ejercicioIdx, cambio) {
-            let ejercicio = rutinaActual.bloques[bloqueIdx].ejercicios[ejercicioIdx];
-            let series = ejercicio.series || 1;
-            let contador = document.getElementById(`contador-${bloqueIdx}-${ejercicioIdx}`);
-            let estado = document.getElementById(`estado-${bloqueIdx}-${ejercicioIdx}`);
-            let valorActual = parseInt(contador.textContent.split('/')[0]);
-            let nuevoValor = Math.max(0, Math.min(series, valorActual + cambio));
-            contador.textContent = `${nuevoValor}/${series}`;
-            estado.innerHTML = "";
-            
-            if (intervalos[`${bloqueIdx}-${ejercicioIdx}`]) {
-                clearTimeout(intervalos[`${bloqueIdx}-${ejercicioIdx}`]);
-            }
-            
-            if (nuevoValor > 0 && nuevoValor < series) {
-                let descanso = parseInt(ejercicio.descanso) * 1000;
-                estado.innerHTML = "⏳";
-                intervalos[`${bloqueIdx}-${ejercicioIdx}`] = setTimeout(() => {
-                    new Audio('beep.mp3').play();
-                    estado.innerHTML = "✅";
-                }, descanso);
-            }
-            
-            if (nuevoValor === series) {
-                contador.classList.add('series-completed');
-            } else {
-                contador.classList.remove('series-completed');
-            }
+        function actualizarValor(bloqueIdx, ejercicioIdx, campo, valor) {
+            rutinaActual.bloques[bloqueIdx].ejercicios[ejercicioIdx][campo] = valor;
+            guardarEnLocalStorage();
+        }
+
+        function guardarEnLocalStorage() {
+            localStorage.setItem(archivoActual, JSON.stringify(rutinaActual));
         }
     </script>
 </body>
