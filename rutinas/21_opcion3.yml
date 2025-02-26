@@ -1,18 +1,53 @@
-nombre: "Rutina Potencia 2+1 - Opción 3"
+nombre: "Bici de ruta o rodillo (1.5 - 2.5h)"
 bloques:
-  - nombre: "Pecho y Espalda"
+  - nombre: "Calentamiento (10 min)"
     ejercicios:
-      - nombre: "Press de banca"
-        peso: 80kg
-        repeticiones: 8
-        descanso: "90s"
-      - nombre: "Dominadas"
-        peso: "Peso corporal"
-        repeticiones: 10
-        descanso: "60s"
-  - nombre: "Piernas"
+      - nombre: "Pedaleo suave"
+        peso: "N/A"
+        repeticiones: "5 min"
+        descanso: "Ritmo fácil"
+      - nombre: "Progresión de intensidad"
+        peso: "N/A"
+        repeticiones: "10 min"
+        descanso: "Aumento gradual con picos suaves"
+
+  - nombre: "Bloque principal (2.5 - 4h)"
     ejercicios:
-      - nombre: "Sentadillas"
-        peso: 100kg
-        repeticiones: 8
-        descanso: "90s"
+      - nombre: "Intervalos de potencia"
+        peso: "85-90% de FTP"
+        repeticiones: "4-5x5 min"
+        descanso: "2-3 min entre intervalos"
+      - nombre: "Trabajo de subida"
+        peso: "Esfuerzo moderado-alto"
+        repeticiones: "3-4 subidas de 3-5 min"
+        descanso: "N/A"
+      - nombre: "Alternancia de cadencia"
+        peso: "65-75 RPM y 95-105 RPM"
+        repeticiones: "10-15 min cada una"
+        descanso: "N/A"
+
+  - nombre: "Trabajo de Core (5-10 min)"
+    ejercicios:
+      - nombre: "Pedaleo suave de recuperación"
+        peso: "N/A"
+        repeticiones: "5-10 min"
+        descanso: "Frecuencia cardíaca descendiendo"
+
+  - nombre: "Estiramiento (5 min)"
+    ejercicios:
+      - nombre: "Cuádriceps"
+        peso: "N/A"
+        repeticiones: "N/A"
+        descanso: "N/A"
+      - nombre: "Isquiotibiales"
+        peso: "N/A"
+        repeticiones: "N/A"
+        descanso: "N/A"
+      - nombre: "Gemelos"
+        peso: "N/A"
+        repeticiones: "N/A"
+        descanso: "N/A"
+      - nombre: "Flexores de cadera"
+        peso: "N/A"
+        repeticiones: "N/A"
+        descanso: "N/A"
