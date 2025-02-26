@@ -123,11 +123,18 @@
             
             if (nuevoValor > 0 && nuevoValor < series) {
                 let descanso = parseInt(ejercicio.descanso) * 1000;
-                estado.innerHTML = "⏳";
-                intervalos[`${bloqueIdx}-${ejercicioIdx}`] = setTimeout(() => {
-                    new Audio('beep.mp3').play();
-                    estado.innerHTML = "✅";
-                }, descanso);
+                let tiempoRestante = descanso;
+                function actualizarEstado() {
+                    if (tiempoRestante > 0) {
+                        estado.innerHTML = `⏳ ${tiempoRestante}s`;
+                        tiempoRestante--;
+                        setTimeout(actualizarEstado, 1000);
+                    } else {
+                        estado.innerHTML = "✅ ¡Listo!";
+                        new Audio('beep.mp3').play();
+                    }
+                }
+                actualizarEstado();
             }
             
             if (nuevoValor === series) {
