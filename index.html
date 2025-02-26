@@ -95,6 +95,8 @@
                             <input type="text" class="editable-input" value="${series}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'series', this.value)"> series x 
                             <input type="text" class="editable-input" value="${ejercicio.repeticiones}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'repeticiones', this.value)"> repeticiones - 
                             <input type="text" class="editable-input" value="${descanso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'descanso', this.value)"> descanso
+                        </p>
+                        <p>
                             <button onclick="modificarSeries(${bloqueIdx}, ${ejercicioIdx}, -1)">-</button>
                             <span id="contador-${bloqueIdx}-${ejercicioIdx}">0/${series}</span>
                             <button onclick="modificarSeries(${bloqueIdx}, ${ejercicioIdx}, 1)">+</button>
