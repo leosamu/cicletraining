@@ -9,6 +9,19 @@
         .hidden {
             display: none;
         }
+        .serie-linea {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Espaciado entre elementos */
+            margin-bottom: 5px; /* Espaciado mínimo entre líneas */
+        }
+        
+        .serie-linea input {
+            width: 60px;
+            padding: 3px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
         .series-counter {
             font-weight: bold;
             color: black;
