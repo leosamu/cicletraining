@@ -1,0 +1,18 @@
+nombre: "Rutina Potencia 2+1 - Opción 1"
+bloques:
+  - nombre: "Pecho y adsfasd"
+    ejercicios:
+      - nombre: "Press de banca"
+        peso: 80kg
+        repeticiones: 8
+        descanso: "90s"
+      - nombre: "Dominadas"
+        peso: "Peso corporal"
+        repeticiones: 10
+        descanso: "60s"
+  - nombre: "Piernas"
+    ejercicios:
+      - nombre: "Sentadillas"
+        peso: 100kg
+        repeticiones: 8
+        descanso: "90s"
