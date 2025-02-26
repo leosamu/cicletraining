@@ -124,7 +124,7 @@
                 clearTimeout(intervalos[`${bloqueIdx}-${ejercicioIdx}`]);
             }
             
-            if (nuevoValor > 0 && nuevoValor < series) {
+            if (nuevoValor > 0 && nuevoValor =< series) {
                 let descanso = parseInt(ejercicio.descanso) || 0;
                 let tiempoRestante = descanso;
                 function actualizarEstado() {
