@@ -5,37 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seguimiento de Entrenamiento</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <style>
-        body {
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-        }
-        .hidden {
-            display: none;
-        }
-        .series-counter {
-            font-weight: bold;
-            color: black;
-        }
-        .series-completed {
-            color: green;
-        }
-        .editable-input {
-            border: 1px solid #ccc;
-            padding: 5px;
-            width: 50px;
-            text-align: center;
-        }
-        .timer-icon {
-            font-size: 20px;
-            margin-left: 10px;
-        }
-    </style>
 </head>
 <body>
     <nav>
@@ -76,7 +48,10 @@
                 item.className = "collection-item";
                 item.textContent = opcion;
                 item.href = "#";
-                item.onclick = () => cargarRutina(tipo, opcion);
+                item.onclick = () => {
+                    cargarRutina(tipo, opcion);
+                    document.getElementById('menu-rutina').classList.add('hidden');
+                };
                 document.getElementById('opciones-rutina').appendChild(item);
             });
         }
@@ -104,39 +79,6 @@
                         console.error("Error cargando el archivo YAML: ", error);
                     });
             }
-        }
-
-        function mostrarRutina() {
-            let contenido = `<h4>${rutinaActual.nombre}</h4>`;
-            rutinaActual.bloques.forEach((bloque, bloqueIdx) => {
-                contenido += `<h5>${bloque.nombre}</h5>`;
-                bloque.ejercicios.forEach((ejercicio, ejercicioIdx) => {
-                    let descanso = parseInt(ejercicio.descanso) || 0;
-                    contenido += `
-                        <div class="card-panel">
-                            <p><b>${ejercicio.nombre}</b></p>
-                            <p>
-                                <input type="text" class="editable-input" value="${ejercicio.peso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'peso', this.value)"> kg -
-                                <input type="text" class="editable-input" value="${ejercicio.series}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'series', this.value)"> series x 
-                                <input type="text" class="editable-input" value="${ejercicio.repeticiones}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'repeticiones', this.value)"> repeticiones -
-                                <input type="text" class="editable-input" value="${ejercicio.descanso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'descanso', this.value)"> descanso
-                                <button onclick="modificarSeries(${bloqueIdx}, ${ejercicioIdx}, 1)">+</button>
-                                <button onclick="modificarSeries(${bloqueIdx}, ${ejercicioIdx}, -1)">-</button>
-                                <span id="timer-${bloqueIdx}-${ejercicioIdx}" class="timer-icon"></span>
-                            </p>
-                        </div>`;
-                });
-            });
-            document.getElementById('contenido-rutina').innerHTML = contenido;
-        }
-
-        function modificarSeries(bloqueIdx, ejercicioIdx, cambio) {
-            let estado = document.getElementById(`timer-${bloqueIdx}-${ejercicioIdx}`);
-            estado.innerHTML = "⏳";
-            setTimeout(() => {
-                new Audio('beep.mp3').play();
-                estado.innerHTML = "✅";
-            }, (rutinaActual.bloques[bloqueIdx].ejercicios[ejercicioIdx].descanso || 0) * 1000);
         }
     </script>
 </body>
