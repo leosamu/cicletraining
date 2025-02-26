@@ -48,28 +48,53 @@
             document.getElementById('contenido-rutina').innerHTML = `<p>Cargando rutina ${tipo} - ${opcion}...</p>`;
             
             let archivo = `rutinas/${tipo.replace('+', '')}_opcion${opcion.split(' ')[1]}.yml`;
+            let storedData = localStorage.getItem(archivo);
             
-            fetch(archivo)
-                .then(response => response.text())
-                .then(yamlText => {
-                    let rutina = jsyaml.load(yamlText);
-                    mostrarRutina(rutina);
-                })
-                .catch(error => {
-                    document.getElementById('contenido-rutina').innerHTML = `<p>Error cargando la rutina.</p>`;
-                    console.error("Error cargando el archivo YAML: ", error);
-                });
+            if (storedData) {
+                mostrarRutina(JSON.parse(storedData));
+            } else {
+                fetch(archivo)
+                    .then(response => response.text())
+                    .then(yamlText => {
+                        let rutina = jsyaml.load(yamlText);
+                        mostrarRutina(rutina);
+                    })
+                    .catch(error => {
+                        document.getElementById('contenido-rutina').innerHTML = `<p>Error cargando la rutina.</p>`;
+                        console.error("Error cargando el archivo YAML: ", error);
+                    });
+            }
         }
         
         function mostrarRutina(rutina) {
             let contenido = `<h3>${rutina.nombre}</h3>`;
-            rutina.bloques.forEach(bloque => {
+            rutina.bloques.forEach((bloque, bloqueIdx) => {
                 contenido += `<h4>${bloque.nombre}</h4>`;
-                bloque.ejercicios.forEach(ejercicio => {
-                    contenido += `<p>${ejercicio.nombre} - ${ejercicio.peso} - ${ejercicio.repeticiones} repeticiones - ${ejercicio.descanso} descanso</p>`;
+                bloque.ejercicios.forEach((ejercicio, ejercicioIdx) => {
+                    contenido += `
+                        <p>
+                            ${ejercicio.nombre} - 
+                            <input type="text" value="${ejercicio.peso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'peso', this.value)"> -
+                            <input type="text" value="${ejercicio.repeticiones}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'repeticiones', this.value)"> repeticiones - 
+                            <input type="text" value="${ejercicio.descanso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'descanso', this.value)"> descanso
+                        </p>`;
                 });
             });
             document.getElementById('contenido-rutina').innerHTML = contenido;
+            guardarEnLocalStorage(rutina);
+        }
+
+        function actualizarValor(bloqueIdx, ejercicioIdx, campo, valor) {
+            let archivo = document.getElementById('contenido-rutina').getAttribute('data-archivo');
+            let rutina = JSON.parse(localStorage.getItem(archivo));
+            rutina.bloques[bloqueIdx].ejercicios[ejercicioIdx][campo] = valor;
+            localStorage.setItem(archivo, JSON.stringify(rutina));
+        }
+
+        function guardarEnLocalStorage(rutina) {
+            let archivo = `rutinas/${rutina.nombre.replace(/\s+/g, '_')}.yml`;
+            document.getElementById('contenido-rutina').setAttribute('data-archivo', archivo);
+            localStorage.setItem(archivo, JSON.stringify(rutina));
         }
     </script>
 </body>
