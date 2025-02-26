@@ -87,8 +87,7 @@
                 bloque.ejercicios.forEach((ejercicio, ejercicioIdx) => {
                     let descanso = ejercicio.descanso || "N/A";
                     contenido += `<div class="card-panel">
-                        <p><b>${ejercicio.nombre}</b></p>
-                        (bloqueIdx, ejercicioIdx, campo, valor, serieIdx = null)
+                        <p><b>${ejercicio.nombre}</b></p>                        
                         <p>Descanso: <input type="text" class="editable-input" value="${descanso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'descanso', this.value)"></p> `;
 
                     ejercicio.detalles.forEach((detalle, serieIdx) => {
