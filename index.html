@@ -32,7 +32,7 @@
     <script>
         let rutinaActual = null;
         let archivoActual = "";
-        let intervalos = {}; // Para manejar los temporizadores de cada ejercicio
+        let intervalos = {}; 
 
         function seleccionarEntrenamiento(tipo) {
             document.getElementById('menu-rutina').style.display = 'block';
@@ -88,6 +88,7 @@
                             <button onclick="modificarSeries(${bloqueIdx}, ${ejercicioIdx}, -1)">-</button>
                             <span id="contador-${bloqueIdx}-${ejercicioIdx}">0/${series}</span>
                             <button onclick="modificarSeries(${bloqueIdx}, ${ejercicioIdx}, 1)">+</button>
+                            <span id="estado-${bloqueIdx}-${ejercicioIdx}"></span>
                         </p>`;
                 });
             });
@@ -98,9 +99,11 @@
             let ejercicio = rutinaActual.bloques[bloqueIdx].ejercicios[ejercicioIdx];
             let series = ejercicio.series || 1;
             let contador = document.getElementById(`contador-${bloqueIdx}-${ejercicioIdx}`);
+            let estado = document.getElementById(`estado-${bloqueIdx}-${ejercicioIdx}`);
             let valorActual = parseInt(contador.textContent.split('/')[0]);
             let nuevoValor = Math.max(0, Math.min(series, valorActual + cambio));
             contador.textContent = `${nuevoValor}/${series}`;
+            estado.innerHTML = "";
             
             if (intervalos[`${bloqueIdx}-${ejercicioIdx}`]) {
                 clearTimeout(intervalos[`${bloqueIdx}-${ejercicioIdx}`]);
@@ -108,8 +111,10 @@
             
             if (nuevoValor > 0 && nuevoValor < series) {
                 let descanso = parseInt(ejercicio.descanso) * 1000;
+                estado.innerHTML = "⏳";
                 intervalos[`${bloqueIdx}-${ejercicioIdx}`] = setTimeout(() => {
                     new Audio('beep.mp3').play();
+                    estado.innerHTML = "✅";
                 }, descanso);
             }
             
@@ -118,15 +123,6 @@
             } else {
                 contador.style.color = 'black';
             }
-        }
-
-        function actualizarValor(bloqueIdx, ejercicioIdx, campo, valor) {
-            rutinaActual.bloques[bloqueIdx].ejercicios[ejercicioIdx][campo] = valor;
-            guardarEnLocalStorage();
-        }
-
-        function guardarEnLocalStorage() {
-            localStorage.setItem(archivoActual, JSON.stringify(rutinaActual));
         }
     </script>
 </body>
