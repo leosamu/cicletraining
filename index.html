@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>    
 </head>
 <body>
     <nav>
@@ -48,10 +48,7 @@
                 item.className = "collection-item";
                 item.textContent = opcion;
                 item.href = "#";
-                item.onclick = () => {
-                    cargarRutina(tipo, opcion);
-                    document.getElementById('menu-rutina').classList.add('hidden');
-                };
+                item.onclick = () => cargarRutina(tipo, opcion);
                 document.getElementById('opciones-rutina').appendChild(item);
             });
         }
@@ -79,6 +76,41 @@
                         console.error("Error cargando el archivo YAML: ", error);
                     });
             }
+       }
+        
+        function mostrarRutina() {
+            let contenido = `<h3>${rutinaActual.nombre}</h3>`;
+            rutinaActual.bloques.forEach((bloque, bloqueIdx) => {
+                contenido += `<h4>${bloque.nombre}</h4>`;
+                bloque.ejercicios.forEach((ejercicio, ejercicioIdx) => {
+                    let series = ejercicio.series || 1;
+                    let descanso = parseInt(ejercicio.descanso) || 0;
+                    contenido += `
+                        <div class="card-panel">
+                        <p><b>${ejercicio.nombre}</b></p>
+                        <p>
+                            <input type="text" class="editable-input" value="${ejercicio.peso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'peso', this.value)"> kg -
+                            <input type="text" class="editable-input" value="${series}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'series', this.value)"> series x 
+                            <input type="text" class="editable-input" value="${ejercicio.repeticiones}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'repeticiones', this.value)"> repeticiones - 
+                            <input type="text" class="editable-input" value="${descanso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'descanso', this.value)"> descanso
+                            <button onclick="modificarSeries(${bloqueIdx}, ${ejercicioIdx}, -1)">-</button>
+                            <span id="contador-${bloqueIdx}-${ejercicioIdx}">0/${series}</span>
+                            <button onclick="modificarSeries(${bloqueIdx}, ${ejercicioIdx}, 1)">+</button>
+                            <span id="estado-${bloqueIdx}-${ejercicioIdx}"></span>
+                            <span id="timer-${bloqueIdx}-${ejercicioIdx}" class="timer-icon"></span>
+                        </p>`;
+                });
+            });
+            document.getElementById('contenido-rutina').innerHTML = contenido;
+        }
+
+        function modificarSeries(bloqueIdx, ejercicioIdx, cambio) {
+            let estado = document.getElementById(`timer-${bloqueIdx}-${ejercicioIdx}`);
+            estado.innerHTML = "⏳";
+            setTimeout(() => {
+                new Audio('beep.mp3').play();
+                estado.innerHTML = "✅";
+            }, (rutinaActual.bloques[bloqueIdx].ejercicios[ejercicioIdx].descanso || 0) * 1000);
         }
     </script>
 </body>
