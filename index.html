@@ -88,13 +88,14 @@
                     let descanso = ejercicio.descanso || "N/A";
                     contenido += `<div class="card-panel">
                         <p><b>${ejercicio.nombre}</b></p>
-                        <p>Descanso: <b>${descanso}</b></p>`;
+                        (bloqueIdx, ejercicioIdx, campo, valor, serieIdx = null)
+                        <p>Descanso: <input type="text" class="editable-input" value="${descanso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'descanso', this.value)"></p> `;
 
                     ejercicio.detalles.forEach((detalle, serieIdx) => {
                         contenido += `<p>
                             Serie ${serieIdx + 1}:
-                            kg - <input type="text" class="editable-input" value="${detalle.peso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, ${serieIdx}, 'peso', this.value)">
-                            repeticiones - <input type="text" class="editable-input" value="${detalle.repeticiones}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, ${serieIdx}, 'repeticiones', this.value)">
+                            Kg: <input type="text" class="editable-input" value="${detalle.peso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'peso', this.value,${serieIdx})">
+                            Repeticiones: <input type="text" class="editable-input" value="${detalle.repeticiones}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'repeticiones', this.value, ${serieIdx})">
                         </p>`;
                     });
 
@@ -148,8 +149,18 @@
             }
         }
 
-        function actualizarValor(bloqueIdx, ejercicioIdx, serieIdx, campo, valor) {
-            rutinaActual.bloques[bloqueIdx].ejercicios[ejercicioIdx].detalles[serieIdx][campo] = valor;
+        // function actualizarValor(bloqueIdx, ejercicioIdx, serieIdx, campo, valor) {
+        //     rutinaActual.bloques[bloqueIdx].ejercicios[ejercicioIdx].detalles[serieIdx][campo] = valor;
+        //     guardarEnLocalStorage();
+        // }
+        function actualizarValor(bloqueIdx, ejercicioIdx, campo, valor, serieIdx = null) {
+            if (campo === "descanso") {
+                // Actualiza el descanso general del ejercicio
+                rutinaActual.bloques[bloqueIdx].ejercicios[ejercicioIdx].descanso = valor;
+            } else if (serieIdx !== null) {
+                // Actualiza peso o repeticiones en una serie específica
+                rutinaActual.bloques[bloqueIdx].ejercicios[ejercicioIdx].detalles[serieIdx][campo] = valor;
+            }
             guardarEnLocalStorage();
         }
 
