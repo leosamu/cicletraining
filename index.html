@@ -91,11 +91,13 @@
                         <p>Descanso: <input type="text" class="editable-input" value="${descanso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'descanso', this.value)"></p> `;
 
                     ejercicio.detalles.forEach((detalle, serieIdx) => {
-                        contenido += `<p>
-                            Serie ${serieIdx + 1}:
-                            Kg: <input type="text" class="editable-input" value="${detalle.peso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'peso', this.value,${serieIdx})">
-                            Repeticiones: <input type="text" class="editable-input" value="${detalle.repeticiones}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'repeticiones', this.value, ${serieIdx})">
-                        </p>`;
+                        contenido += `<div class="serie-linea">
+                            <span>Serie ${serieIdx + 1}:</span>
+                            <span>Kg:</span> 
+                            <input type="text" class="editable-input" value="${detalle.peso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'peso', this.value, ${serieIdx})">
+                            <span>Reps:</span> 
+                            <input type="text" class="editable-input" value="${detalle.repeticiones}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'repeticiones', this.value, ${serieIdx})">
+                        </div>`;
                     });
 
                     contenido += `<p>
