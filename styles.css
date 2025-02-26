@@ -1,1 +1,28 @@
 
+        body {
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        .hidden {
+            display: none;
+        }
+        .series-counter {
+            font-weight: bold;
+            color: black;
+        }
+        .series-completed {
+            color: green;
+        }
+        .editable-input {
+            border: 1px solid #ccc;
+            padding: 5px;
+            width: 50px;
+            text-align: center;
+        }
+        .timer-icon {
+            font-size: 20px;
+            margin-left: 10px;
+        }
