@@ -78,33 +78,34 @@
             }
             document.getElementById('menu-rutina').classList.add('hidden')
             document.getElementById('opciones-rutina').innerHTML = '';
-       }
+        }
         
         function mostrarRutina() {
             let contenido = `<h3>${rutinaActual.nombre}</h3>`;
             rutinaActual.bloques.forEach((bloque, bloqueIdx) => {
                 contenido += `<h4>${bloque.nombre}</h4>`;
                 bloque.ejercicios.forEach((ejercicio, ejercicioIdx) => {
-                    let series = ejercicio.series || 1;
-                    let descanso = parseInt(ejercicio.descanso) || 0;
-                    contenido += `
-                        <div class="card-panel">
+                    let descanso = ejercicio.descanso || "N/A";
+                    contenido += `<div class="card-panel">
                         <p><b>${ejercicio.nombre}</b></p>
-                        <p>
-                            kg - <input type="text" class="editable-input" value="${ejercicio.peso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'peso', this.value)">
-                            series x <input type="text" class="editable-input" value="${series}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'series', this.value)"> 
-                            repeticiones - <input type="text" class="editable-input" value="${ejercicio.repeticiones}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'repeticiones', this.value)"> 
-                            descanso <input type="text" class="editable-input" value="${descanso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'descanso', this.value)"> 
-                        </p>
-                        <p>
-                            <button onclick="modificarSeries(${bloqueIdx}, ${ejercicioIdx}, -1)">-</button>
-                            <span id="contador-${bloqueIdx}-${ejercicioIdx}">0/${series}</span>
-                            <button onclick="modificarSeries(${bloqueIdx}, ${ejercicioIdx}, 1)">+</button>
-                            <span id="estado-${bloqueIdx}-${ejercicioIdx}"></span>
-                            <span id="timer-${bloqueIdx}-${ejercicioIdx}" class="timer-icon"></span>
-                        </p>
-                        </div>`
-                        ;
+                        <p>Descanso: <b>${descanso}</b></p>`;
+
+                    ejercicio.detalles.forEach((detalle, serieIdx) => {
+                        contenido += `<p>
+                            Serie ${serieIdx + 1}:
+                            kg - <input type="text" class="editable-input" value="${detalle.peso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, ${serieIdx}, 'peso', this.value)">
+                            repeticiones - <input type="text" class="editable-input" value="${detalle.repeticiones}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, ${serieIdx}, 'repeticiones', this.value)">
+                        </p>`;
+                    });
+
+                    contenido += `<p>
+                        <button onclick="modificarSeries(${bloqueIdx}, ${ejercicioIdx}, -1)">-</button>
+                        <span id="contador-${bloqueIdx}-${ejercicioIdx}">0/${ejercicio.detalles.length}</span>
+                        <button onclick="modificarSeries(${bloqueIdx}, ${ejercicioIdx}, 1)">+</button>
+                        <span id="estado-${bloqueIdx}-${ejercicioIdx}"></span>
+                        <span id="timer-${bloqueIdx}-${ejercicioIdx}" class="timer-icon"></span>
+                    </p>
+                    </div>`;
                 });
             });
             document.getElementById('contenido-rutina').innerHTML = contenido;
@@ -112,7 +113,7 @@
 
         function modificarSeries(bloqueIdx, ejercicioIdx, cambio) {
             let ejercicio = rutinaActual.bloques[bloqueIdx].ejercicios[ejercicioIdx];
-            let series = ejercicio.series || 1;
+            let series = ejercicio.detalles.length;
             let contador = document.getElementById(`contador-${bloqueIdx}-${ejercicioIdx}`);
             let estado = document.getElementById(`estado-${bloqueIdx}-${ejercicioIdx}`);
             let valorActual = parseInt(contador.textContent.split('/')[0]);
@@ -124,7 +125,7 @@
                 clearTimeout(intervalos[`${bloqueIdx}-${ejercicioIdx}`]);
             }
             
-            if (nuevoValor > 0 && nuevoValor =< series) {
+            if (nuevoValor > 0 && nuevoValor <= series) {
                 let descanso = parseInt(ejercicio.descanso) || 0;
                 let tiempoRestante = descanso;
                 function actualizarEstado() {
@@ -145,6 +146,15 @@
             } else {
                 contador.style.color = 'black';
             }
+        }
+
+        function actualizarValor(bloqueIdx, ejercicioIdx, serieIdx, campo, valor) {
+            rutinaActual.bloques[bloqueIdx].ejercicios[ejercicioIdx].detalles[serieIdx][campo] = valor;
+            guardarEnLocalStorage();
+        }
+
+        function guardarEnLocalStorage() {
+            localStorage.setItem(archivoActual, JSON.stringify(rutinaActual));
         }
     </script>
 </body>
