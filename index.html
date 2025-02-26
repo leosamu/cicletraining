@@ -30,6 +30,9 @@
     </div>
     
     <script>
+        let rutinaActual = null;
+        let archivoActual = "";
+
         function seleccionarEntrenamiento(tipo) {
             document.getElementById('menu-rutina').style.display = 'block';
             document.getElementById('opciones-rutina').innerHTML = '';
@@ -47,17 +50,19 @@
             document.getElementById('rutina').style.display = 'block';
             document.getElementById('contenido-rutina').innerHTML = `<p>Cargando rutina ${tipo} - ${opcion}...</p>`;
             
-            let archivo = `rutinas/${tipo.replace('+', '')}_opcion${opcion.split(' ')[1]}.yml`;
-            let storedData = localStorage.getItem(archivo);
+            archivoActual = `rutinas/${tipo.replace('+', '')}_opcion${opcion.split(' ')[1]}.yml`;
+            let storedData = localStorage.getItem(archivoActual);
             
             if (storedData) {
-                mostrarRutina(JSON.parse(storedData));
+                rutinaActual = JSON.parse(storedData);
+                mostrarRutina();
             } else {
-                fetch(archivo)
+                fetch(archivoActual)
                     .then(response => response.text())
                     .then(yamlText => {
-                        let rutina = jsyaml.load(yamlText);
-                        mostrarRutina(rutina);
+                        rutinaActual = jsyaml.load(yamlText);
+                        guardarEnLocalStorage();
+                        mostrarRutina();
                     })
                     .catch(error => {
                         document.getElementById('contenido-rutina').innerHTML = `<p>Error cargando la rutina.</p>`;
@@ -66,9 +71,9 @@
             }
         }
         
-        function mostrarRutina(rutina) {
-            let contenido = `<h3>${rutina.nombre}</h3>`;
-            rutina.bloques.forEach((bloque, bloqueIdx) => {
+        function mostrarRutina() {
+            let contenido = `<h3>${rutinaActual.nombre}</h3>`;
+            rutinaActual.bloques.forEach((bloque, bloqueIdx) => {
                 contenido += `<h4>${bloque.nombre}</h4>`;
                 bloque.ejercicios.forEach((ejercicio, ejercicioIdx) => {
                     contenido += `
@@ -81,20 +86,15 @@
                 });
             });
             document.getElementById('contenido-rutina').innerHTML = contenido;
-            guardarEnLocalStorage(rutina);
         }
 
         function actualizarValor(bloqueIdx, ejercicioIdx, campo, valor) {
-            let archivo = document.getElementById('contenido-rutina').getAttribute('data-archivo');
-            let rutina = JSON.parse(localStorage.getItem(archivo));
-            rutina.bloques[bloqueIdx].ejercicios[ejercicioIdx][campo] = valor;
-            localStorage.setItem(archivo, JSON.stringify(rutina));
+            rutinaActual.bloques[bloqueIdx].ejercicios[ejercicioIdx][campo] = valor;
+            guardarEnLocalStorage();
         }
 
-        function guardarEnLocalStorage(rutina) {
-            let archivo = `rutinas/${rutina.nombre.replace(/\s+/g, '_')}.yml`;
-            document.getElementById('contenido-rutina').setAttribute('data-archivo', archivo);
-            localStorage.setItem(archivo, JSON.stringify(rutina));
+        function guardarEnLocalStorage() {
+            localStorage.setItem(archivoActual, JSON.stringify(rutinaActual));
         }
     </script>
 </body>
