@@ -32,6 +32,7 @@
     <script>
         let rutinaActual = null;
         let archivoActual = "";
+        let intervalos = {}; // Para manejar los temporizadores de cada ejercicio
 
         function seleccionarEntrenamiento(tipo) {
             document.getElementById('menu-rutina').style.display = 'block';
@@ -76,17 +77,47 @@
             rutinaActual.bloques.forEach((bloque, bloqueIdx) => {
                 contenido += `<h4>${bloque.nombre}</h4>`;
                 bloque.ejercicios.forEach((ejercicio, ejercicioIdx) => {
+                    let series = ejercicio.series || 1;
                     contenido += `
                         <p>
                             ${ejercicio.nombre} - 
                             <input type="text" value="${ejercicio.peso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'peso', this.value)"> kg -
-                            <input type="text" value="${ejercicio.series}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'series', this.value)"> series x 
+                            <input type="text" value="${series}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'series', this.value)"> series x 
                             <input type="text" value="${ejercicio.repeticiones}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'repeticiones', this.value)"> repeticiones - 
                             <input type="text" value="${ejercicio.descanso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'descanso', this.value)"> descanso
+                            <button onclick="modificarSeries(${bloqueIdx}, ${ejercicioIdx}, -1)">-</button>
+                            <span id="contador-${bloqueIdx}-${ejercicioIdx}">0/${series}</span>
+                            <button onclick="modificarSeries(${bloqueIdx}, ${ejercicioIdx}, 1)">+</button>
                         </p>`;
                 });
             });
             document.getElementById('contenido-rutina').innerHTML = contenido;
+        }
+
+        function modificarSeries(bloqueIdx, ejercicioIdx, cambio) {
+            let ejercicio = rutinaActual.bloques[bloqueIdx].ejercicios[ejercicioIdx];
+            let series = ejercicio.series || 1;
+            let contador = document.getElementById(`contador-${bloqueIdx}-${ejercicioIdx}`);
+            let valorActual = parseInt(contador.textContent.split('/')[0]);
+            let nuevoValor = Math.max(0, Math.min(series, valorActual + cambio));
+            contador.textContent = `${nuevoValor}/${series}`;
+            
+            if (intervalos[`${bloqueIdx}-${ejercicioIdx}`]) {
+                clearTimeout(intervalos[`${bloqueIdx}-${ejercicioIdx}`]);
+            }
+            
+            if (nuevoValor > 0 && nuevoValor < series) {
+                let descanso = parseInt(ejercicio.descanso) * 1000;
+                intervalos[`${bloqueIdx}-${ejercicioIdx}`] = setTimeout(() => {
+                    new Audio('beep.mp3').play();
+                }, descanso);
+            }
+            
+            if (nuevoValor === series) {
+                contador.style.color = 'green';
+            } else {
+                contador.style.color = 'black';
+            }
         }
 
         function actualizarValor(bloqueIdx, ejercicioIdx, campo, valor) {
