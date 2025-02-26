@@ -31,6 +31,10 @@
             width: 50px;
             text-align: center;
         }
+        .timer-icon {
+            font-size: 20px;
+            margin-left: 10px;
+        }
     </style>
 </head>
 <body>
@@ -107,6 +111,7 @@
             rutinaActual.bloques.forEach((bloque, bloqueIdx) => {
                 contenido += `<h5>${bloque.nombre}</h5>`;
                 bloque.ejercicios.forEach((ejercicio, ejercicioIdx) => {
+                    let descanso = parseInt(ejercicio.descanso) || 0;
                     contenido += `
                         <div class="card-panel">
                             <p><b>${ejercicio.nombre}</b></p>
@@ -115,6 +120,9 @@
                                 <input type="text" class="editable-input" value="${ejercicio.series}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'series', this.value)"> series x 
                                 <input type="text" class="editable-input" value="${ejercicio.repeticiones}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'repeticiones', this.value)"> repeticiones -
                                 <input type="text" class="editable-input" value="${ejercicio.descanso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'descanso', this.value)"> descanso
+                                <button onclick="modificarSeries(${bloqueIdx}, ${ejercicioIdx}, 1)">+</button>
+                                <button onclick="modificarSeries(${bloqueIdx}, ${ejercicioIdx}, -1)">-</button>
+                                <span id="timer-${bloqueIdx}-${ejercicioIdx}" class="timer-icon"></span>
                             </p>
                         </div>`;
                 });
@@ -122,13 +130,13 @@
             document.getElementById('contenido-rutina').innerHTML = contenido;
         }
 
-        function actualizarValor(bloqueIdx, ejercicioIdx, campo, valor) {
-            rutinaActual.bloques[bloqueIdx].ejercicios[ejercicioIdx][campo] = valor;
-            guardarEnLocalStorage();
-        }
-
-        function guardarEnLocalStorage() {
-            localStorage.setItem(archivoActual, JSON.stringify(rutinaActual));
+        function modificarSeries(bloqueIdx, ejercicioIdx, cambio) {
+            let estado = document.getElementById(`timer-${bloqueIdx}-${ejercicioIdx}`);
+            estado.innerHTML = "⏳";
+            setTimeout(() => {
+                new Audio('beep.mp3').play();
+                estado.innerHTML = "✅";
+            }, (rutinaActual.bloques[bloqueIdx].ejercicios[ejercicioIdx].descanso || 0) * 1000);
         }
     </script>
 </body>
