@@ -79,7 +79,8 @@
                     contenido += `
                         <p>
                             ${ejercicio.nombre} - 
-                            <input type="text" value="${ejercicio.peso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'peso', this.value)"> -
+                            <input type="text" value="${ejercicio.peso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'peso', this.value)"> kg -
+                            <input type="text" value="${ejercicio.series}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'series', this.value)"> series x 
                             <input type="text" value="${ejercicio.repeticiones}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'repeticiones', this.value)"> repeticiones - 
                             <input type="text" value="${ejercicio.descanso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'descanso', this.value)"> descanso
                         </p>`;
