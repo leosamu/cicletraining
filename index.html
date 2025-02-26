@@ -45,7 +45,12 @@
         let rutinaActual = null;
         let archivoActual = "";
         let intervalos = {};
-
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.sidenav');
+            M.Sidenav.init(elems);
+        });
+        
         function seleccionarEntrenamiento(tipo) {
             document.getElementById('menu-rutina').classList.remove('hidden');
             document.getElementById('opciones-rutina').innerHTML = '';
