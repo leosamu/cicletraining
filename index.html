@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seguimiento de Entrenamiento</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
 </head>
 <body>
     <h1>Seguimiento de Entrenamiento</h1>
@@ -46,17 +47,30 @@
             document.getElementById('rutina').style.display = 'block';
             document.getElementById('contenido-rutina').innerHTML = `<p>Cargando rutina ${tipo} - ${opcion}...</p>`;
             
-            // Simulación de carga de rutina desde YAML (será implementado con Fetch)
-            setTimeout(() => {
-                let ejemploRutina = `
-                    <h3>${tipo} - ${opcion}</h3>
-                    <p>Ejercicio 1: Press de banca - 80kg - 8 repeticiones - 90s descanso</p>
-                    <p>Ejercicio 2: Sentadillas - 100kg - 8 repeticiones - 90s descanso</p>
-                `;
-                document.getElementById('contenido-rutina').innerHTML = ejemploRutina;
-            }, 1000);
+            let archivo = `rutinas/${tipo.replace('+', '')}_opcion${opcion.split(' ')[1]}.yml`;
+            
+            fetch(archivo)
+                .then(response => response.text())
+                .then(yamlText => {
+                    let rutina = jsyaml.load(yamlText);
+                    mostrarRutina(rutina);
+                })
+                .catch(error => {
+                    document.getElementById('contenido-rutina').innerHTML = `<p>Error cargando la rutina.</p>`;
+                    console.error("Error cargando el archivo YAML: ", error);
+                });
+        }
+        
+        function mostrarRutina(rutina) {
+            let contenido = `<h3>${rutina.nombre}</h3>`;
+            rutina.bloques.forEach(bloque => {
+                contenido += `<h4>${bloque.nombre}</h4>`;
+                bloque.ejercicios.forEach(ejercicio => {
+                    contenido += `<p>${ejercicio.nombre} - ${ejercicio.peso} - ${ejercicio.repeticiones} repeticiones - ${ejercicio.descanso} descanso</p>`;
+                });
+            });
+            document.getElementById('contenido-rutina').innerHTML = contenido;
         }
     </script>
 </body>
 </html>
-
