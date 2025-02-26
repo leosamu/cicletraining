@@ -1,1 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento de Entrenamiento</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Seguimiento de Entrenamiento</h1>
+    
+    <!-- Menú de selección de entrenamiento -->
+    <div id="menu-entrenamiento">
+        <h2>Selecciona tu entrenamiento</h2>
+        <button onclick="seleccionarEntrenamiento('4+2')">Mejora de potencia (4 días gym + 2 bici)</button>
+        <button onclick="seleccionarEntrenamiento('2+1')">Mejora de potencia (2 días gym + 1 bici)</button>
+    </div>
+    
+    <!-- Submenú de selección de rutina -->
+    <div id="menu-rutina" style="display:none;">
+        <h2>Selecciona tu rutina</h2>
+        <div id="opciones-rutina"></div>
+    </div>
+    
+    <!-- Contenedor para mostrar la rutina -->
+    <div id="rutina" style="display:none;">
+        <h2>Rutina Seleccionada</h2>
+        <div id="contenido-rutina"></div>
+    </div>
+    
+    <script>
+        function seleccionarEntrenamiento(tipo) {
+            document.getElementById('menu-rutina').style.display = 'block';
+            document.getElementById('opciones-rutina').innerHTML = '';
+            
+            let opciones = tipo === '4+2' ? ["Opción 1", "Opción 2", "Opción 3", "Opción 4", "Opción 5", "Opción 6"] : ["Opción 1", "Opción 2", "Opción 3"];
+            opciones.forEach(opcion => {
+                let btn = document.createElement('button');
+                btn.textContent = opcion;
+                btn.onclick = () => cargarRutina(tipo, opcion);
+                document.getElementById('opciones-rutina').appendChild(btn);
+            });
+        }
+        
+        function cargarRutina(tipo, opcion) {
+            document.getElementById('rutina').style.display = 'block';
+            document.getElementById('contenido-rutina').innerHTML = `<p>Cargando rutina ${tipo} - ${opcion}...</p>`;
+            
+            // Simulación de carga de rutina desde YAML (será implementado con Fetch)
+            setTimeout(() => {
+                let ejemploRutina = `
+                    <h3>${tipo} - ${opcion}</h3>
+                    <p>Ejercicio 1: Press de banca - 80kg - 8 repeticiones - 90s descanso</p>
+                    <p>Ejercicio 2: Sentadillas - 100kg - 8 repeticiones - 90s descanso</p>
+                `;
+                document.getElementById('contenido-rutina').innerHTML = ejemploRutina;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
 
