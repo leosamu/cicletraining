@@ -91,10 +91,10 @@
                         <div class="card-panel">
                         <p><b>${ejercicio.nombre}</b></p>
                         <p>
-                            <input type="text" class="editable-input" value="${ejercicio.peso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'peso', this.value)"> kg -
-                            <input type="text" class="editable-input" value="${series}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'series', this.value)"> series x 
-                            <input type="text" class="editable-input" value="${ejercicio.repeticiones}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'repeticiones', this.value)"> repeticiones - 
-                            <input type="text" class="editable-input" value="${descanso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'descanso', this.value)"> descanso
+                            kg - <input type="text" class="editable-input" value="${ejercicio.peso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'peso', this.value)">
+                            series x <input type="text" class="editable-input" value="${series}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'series', this.value)"> 
+                            repeticiones - <input type="text" class="editable-input" value="${ejercicio.repeticiones}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'repeticiones', this.value)"> 
+                            descanso <input type="text" class="editable-input" value="${descanso}" onchange="actualizarValor(${bloqueIdx}, ${ejercicioIdx}, 'descanso', this.value)"> 
                         </p>
                         <p>
                             <button onclick="modificarSeries(${bloqueIdx}, ${ejercicioIdx}, -1)">-</button>
