@@ -37,7 +37,7 @@ bloques:
   - nombre: "Bloque principal (35-40 min)"
     ejercicios:
       - nombre: "Press de banca con barra o mancuernas"
-        descanso: "60-90s"
+        descanso: "90s"
         detalles:
           - peso: "Según capacidad"
             repeticiones: "8"
@@ -46,7 +46,7 @@ bloques:
           - peso: "Según capacidad"
             repeticiones: "8"
       - nombre: "Remo con barra o mancuernas"
-        descanso: "60-90s"
+        descanso: "90s"
         detalles:
           - peso: "Según capacidad"
             repeticiones: "8"
@@ -73,7 +73,7 @@ bloques:
           - peso: "Peso corporal o asistido"
             repeticiones: "10"
       - nombre: "Face pulls con cuerda"
-        descanso: "45-60s"
+        descanso: "60s"
         detalles:
           - peso: "Según capacidad"
             repeticiones: "12"
