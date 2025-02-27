@@ -1,0 +1,118 @@
+nombre: "Entrenamiento de fuerza - piernas y core (55 min)"
+bloques:
+  - nombre: "Calentamiento (10 min)"
+    ejercicios:
+      - nombre: "Bicicleta estática o remo"
+        descanso: "Ritmo ligero"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "5 min"
+      - nombre: "Ejercicios de movilidad"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "5 min"
+      - nombre: "Sentadillas sin peso"
+        descanso: "N/A"
+        detalles:
+          - peso: "Peso corporal"
+            repeticiones: 10
+          - peso: "Peso corporal"
+            repeticiones: 10
+      - nombre: "Balanceo de pierna delante-detrás y lateral"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "10 por pierna"
+      - nombre: "Rotaciones de cadera y tobillo"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "N/A"
+
+  - nombre: "Bloque principal (35-40 min)"
+    ejercicios:
+      - nombre: "Sentadilla trasera"
+        descanso: "90s-2min"
+        detalles:
+          - peso: "Según capacidad"
+            repeticiones: "5"
+          - peso: "Según capacidad"
+            repeticiones: "5"
+          - peso: "Según capacidad"
+            repeticiones: "5"
+          - peso: "Según capacidad"
+            repeticiones: "5"
+      - nombre: "Peso muerto"
+        descanso: "90s-2min"
+        detalles:
+          - peso: "Según capacidad"
+            repeticiones: "5"
+          - peso: "Según capacidad"
+            repeticiones: "5"
+          - peso: "Según capacidad"
+            repeticiones: "5"
+          - peso: "Según capacidad"
+            repeticiones: "5"
+      - nombre: "Prensa de piernas"
+        descanso: "60-90s"
+        detalles:
+          - peso: "Según capacidad"
+            repeticiones: "8"
+          - peso: "Según capacidad"
+            repeticiones: "8"
+          - peso: "Según capacidad"
+            repeticiones: "8"
+      - nombre: "Hip thrust"
+        descanso: "60-90s"
+        detalles:
+          - peso: "Según capacidad"
+            repeticiones: "8"
+          - peso: "Según capacidad"
+            repeticiones: "8"
+          - peso: "Según capacidad"
+            repeticiones: "8"
+
+  - nombre: "Trabajo de Core (5-10 min)"
+    ejercicios:
+      - nombre: "Plancha con peso"
+        descanso: "N/A"
+        detalles:
+          - peso: "Según capacidad"
+            repeticiones: "30-40 segundos"
+          - peso: "Según capacidad"
+            repeticiones: "30-40 segundos"
+          - peso: "Según capacidad"
+            repeticiones: "30-40 segundos"
+      - nombre: "Elevaciones de piernas colgado o en suelo"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "10-12"
+          - peso: "N/A"
+            repeticiones: "10-12"
+          - peso: "N/A"
+            repeticiones: "10-12"
+
+  - nombre: "Estiramiento (5 min)"
+    ejercicios:
+      - nombre: "Cuádriceps"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "N/A"
+      - nombre: "Isquiotibiales"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "N/A"
+      - nombre: "Glúteos"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "N/A"
+      - nombre: "Zona lumbar"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "N/A"
