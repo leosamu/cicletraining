@@ -1,0 +1,136 @@
+nombre: "Tren superior y core (55 min)"
+bloques:
+  - nombre: "Calentamiento (10 min)"
+    ejercicios:
+      - nombre: "Bicicleta estática o remo"
+        descanso: "Ritmo medio"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "5 min"
+      - nombre: "Ejercicios de movilidad"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "5 min"
+      - nombre: "Rotaciones de hombros con goma elástica"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: 15
+          - peso: "N/A"
+            repeticiones: 15
+      - nombre: "Flexiones explosivas"
+        descanso: "N/A"
+        detalles:
+          - peso: "Peso corporal"
+            repeticiones: 8
+          - peso: "Peso corporal"
+            repeticiones: 8
+      - nombre: "Plancha dinámica"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "30 segundos"
+          - peso: "N/A"
+            repeticiones: "30 segundos"
+
+  - nombre: "Bloque principal (35-40 min)"
+    ejercicios:
+      - nombre: "Press de banca con barra o mancuernas"
+        descanso: "60-90s"
+        detalles:
+          - peso: "Según capacidad"
+            repeticiones: "8"
+          - peso: "Según capacidad"
+            repeticiones: "8"
+          - peso: "Según capacidad"
+            repeticiones: "8"
+      - nombre: "Remo con barra o mancuernas"
+        descanso: "60-90s"
+        detalles:
+          - peso: "Según capacidad"
+            repeticiones: "8"
+          - peso: "Según capacidad"
+            repeticiones: "8"
+          - peso: "Según capacidad"
+            repeticiones: "8"
+      - nombre: "Dominadas (lastradas si puedes)"
+        descanso: "90s"
+        detalles:
+          - peso: "Peso corporal o lastrado"
+            repeticiones: "6"
+          - peso: "Peso corporal o lastrado"
+            repeticiones: "6"
+          - peso: "Peso corporal o lastrado"
+            repeticiones: "6"
+      - nombre: "Fondos en paralelas"
+        descanso: "60s"
+        detalles:
+          - peso: "Peso corporal o asistido"
+            repeticiones: "10"
+          - peso: "Peso corporal o asistido"
+            repeticiones: "10"
+          - peso: "Peso corporal o asistido"
+            repeticiones: "10"
+      - nombre: "Face pulls con cuerda"
+        descanso: "45-60s"
+        detalles:
+          - peso: "Según capacidad"
+            repeticiones: "12"
+          - peso: "Según capacidad"
+            repeticiones: "12"
+          - peso: "Según capacidad"
+            repeticiones: "12"
+
+  - nombre: "Trabajo de Core (5-10 min)"
+    ejercicios:
+      - nombre: "Plancha lateral con toque de cadera al suelo"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "30 segundos por lado"
+          - peso: "N/A"
+            repeticiones: "30 segundos por lado"
+          - peso: "N/A"
+            repeticiones: "30 segundos por lado"
+      - nombre: "Pallof press"
+        descanso: "N/A"
+        detalles:
+          - peso: "Según capacidad"
+            repeticiones: "12 por lado"
+          - peso: "Según capacidad"
+            repeticiones: "12 por lado"
+          - peso: "Según capacidad"
+            repeticiones: "12 por lado"
+      - nombre: "Rueda abdominal (ab wheel)"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "8-10"
+          - peso: "N/A"
+            repeticiones: "8-10"
+          - peso: "N/A"
+            repeticiones: "8-10"
+
+  - nombre: "Estiramiento (5 min)"
+    ejercicios:
+      - nombre: "Hombros"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "N/A"
+      - nombre: "Pectorales"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "N/A"
+      - nombre: "Dorsales"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "N/A"
+      - nombre: "Core"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "N/A"
