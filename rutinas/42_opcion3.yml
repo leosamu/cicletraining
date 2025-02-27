@@ -36,7 +36,7 @@ bloques:
   - nombre: "Bloque principal (35-40 min)"
     ejercicios:
       - nombre: "Sentadilla con barra"
-        descanso: "60-90s"
+        descanso: "90s"
         detalles:
           - peso: "70kg"
             repeticiones: "10"
@@ -56,7 +56,7 @@ bloques:
           - peso: "15kg por mancuerna"
             repeticiones: "12 por pierna"
       - nombre: "Elevaciones de talón (gemelos)"
-        descanso: "45-60s"
+        descanso: "60s"
         detalles:
           - peso: "N/A"
             repeticiones: "15"
@@ -65,7 +65,7 @@ bloques:
           - peso: "N/A"
             repeticiones: "15"
       - nombre: "Prensa de piernas"
-        descanso: "60-90s"
+        descanso: "90s"
         detalles:
           - peso: "120kg"
             repeticiones: "10"
@@ -74,7 +74,7 @@ bloques:
           - peso: "120kg"
             repeticiones: "10"
       - nombre: "Hip thrust con barra"
-        descanso: "60-90s"
+        descanso: "90s"
         detalles:
           - peso: "50kg"
             repeticiones: "10"
@@ -95,7 +95,7 @@ bloques:
           - peso: "Según capacidad"
             repeticiones: "30-40 segundos"
       - nombre: "Crunch con polea"
-        descanso: "N/A"
+        descanso: "60s"
         detalles:
           - peso: "25kg"
             repeticiones: "12-15"
@@ -104,7 +104,7 @@ bloques:
           - peso: "25kg"
             repeticiones: "12-15"
       - nombre: "Elevaciones de piernas colgado o en suelo"
-        descanso: "N/A"
+        descanso: "60s"
         detalles:
           - peso: "N/A"
             repeticiones: "10-12"
