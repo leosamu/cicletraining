@@ -1,0 +1,68 @@
+nombre: "Tirada larga bici (3 - 5h)"
+descripcion: "Consumir carbohidratos cada 45-60 minutos. Al finalizar consumir proteínas + carbohidratos (ej. batido)."
+bloques:
+  - nombre: "Calentamiento (10 min)"
+    ejercicios:
+      - nombre: "Pedaleo suave"
+        descanso: "Ritmo fácil"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "5 min"
+      - nombre: "Progresión de intensidad"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "10 min"
+
+  - nombre: "Bloque principal (2.5 - 4h)"
+    ejercicios:
+      - nombre: "Fase 1: Ritmo constante"
+        descanso: "N/A"
+        detalles:
+          - peso: "60-75% de FTP"
+            repeticiones: "2h"
+      - nombre: "Fase 2: Incremento de la intensidad"
+        descanso: "N/A"
+        detalles:
+          - peso: "85-90% de FTP"
+            repeticiones: "4-6 subidas de 3-5 min"
+          - peso: "Cadencia baja (65-75 RPM)"
+            repeticiones: "2-3 min"
+          - peso: "Cadencia alta (95-105 RPM)"
+            repeticiones: "2-3 min"
+      - nombre: "Fase 3: Recuperación activa"
+        descanso: "N/A"
+        detalles:
+          - peso: "Ritmo moderado"
+            repeticiones: "30-45 min"
+
+  - nombre: "Trabajo de Core (5-10 min)"
+    ejercicios:
+      - nombre: "Pedaleo suave"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "5-10 min"
+
+  - nombre: "Estiramiento (5 min)"
+    ejercicios:
+      - nombre: "Cuádriceps"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "N/A"
+      - nombre: "Isquiotibiales"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "N/A"
+      - nombre: "Gemelos"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "N/A"
+      - nombre: "Flexores de cadera"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "N/A"
