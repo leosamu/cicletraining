@@ -95,8 +95,8 @@
             if (confirm("¿Seguro que quieres resetear la rutina a los valores iniciales?")) {
                 localStorage.removeItem(archivoActual);
                 alert("Rutina restablecida. Se recargará desde el archivo original.");
-                cargarRutina(archivoActual.split('/')[1].split('_')[0] + '+' + archivoActual.split('/')[1].split('_')[1].replace('.yml', ''), 
-                             "Opción " + archivoActual.split('_opcion')[1].replace('.yml', ''));
+                cargarRutina(archivoActual.split('_')[0], 
+                             "Opción " + archivoActual.split('_opcion')[1].replace('.yml',''));
             }
         }
 
