@@ -64,7 +64,7 @@ bloques:
           - peso: "Según capacidad"
             repeticiones: "8"
       - nombre: "Hip thrust"
-        descanso: "60-90s"
+        descanso: "90s"
         detalles:
           - peso: "Según capacidad"
             repeticiones: "8"
