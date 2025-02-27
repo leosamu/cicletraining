@@ -90,6 +90,16 @@
             document.getElementById('menu-rutina').classList.add('hidden')
             document.getElementById('opciones-rutina').innerHTML = '';
         }
+
+        function resetearRutina() {
+            if (confirm("¿Seguro que quieres resetear la rutina a los valores iniciales?")) {
+                localStorage.removeItem(archivoActual);
+                alert("Rutina restablecida. Se recargará desde el archivo original.");
+                cargarRutina(archivoActual.split('/')[1].split('_')[0] + '+' + archivoActual.split('/')[1].split('_')[1].replace('.yml', ''), 
+                             "Opción " + archivoActual.split('_opcion')[1].replace('.yml', ''));
+            }
+        }
+
         
         function mostrarRutina() {
             let contenido = `<h3>${rutinaActual.nombre}</h3>`;
@@ -121,8 +131,16 @@
                     </div>`;
                 });
             });
+            // Agregar botón para resetear la rutina
+            contenido += `
+                <div style="text-align: center; margin-top: 20px;">
+                    <button class="btn red darken-2" onclick="resetearRutina()">Resetear a valores iniciales</button>
+                </div>`;
+
             document.getElementById('contenido-rutina').innerHTML = contenido;
         }
+
+        
 
         function modificarSeries(bloqueIdx, ejercicioIdx, cambio) {
             let ejercicio = rutinaActual.bloques[bloqueIdx].ejercicios[ejercicioIdx];
