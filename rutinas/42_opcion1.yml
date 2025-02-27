@@ -55,7 +55,7 @@ bloques:
           - peso: "Según capacidad"
             repeticiones: "5"
       - nombre: "Prensa de piernas"
-        descanso: "60-90s"
+        descanso: "90s"
         detalles:
           - peso: "Según capacidad"
             repeticiones: "8"
