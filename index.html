@@ -94,9 +94,7 @@
         function resetearRutina() {
             if (confirm("¿Seguro que quieres resetear la rutina a los valores iniciales?")) {
                 localStorage.removeItem(archivoActual);
-                alert("Rutina restablecida. Se recargará desde el archivo original.");
-                cargarRutina(archivoActual.split('_')[0], 
-                             "Opción " + archivoActual.split('_opcion')[1].replace('.yml',''));
+                alert("Rutina restablecida. Selecciona rutina a visualizar.");                
             }
         }
 
