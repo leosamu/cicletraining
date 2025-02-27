@@ -13,7 +13,7 @@ bloques:
           - peso: "N/A"
             repeticiones: "5 min"
       - nombre: "Sentadillas con salto"
-        descanso: "N/A"
+        descanso: "60s"
         detalles:
           - peso: "Peso corporal"
             repeticiones: 10
@@ -35,7 +35,7 @@ bloques:
   - nombre: "Bloque principal (35-40 min)"
     ejercicios:
       - nombre: "Subidas al cajón con peso"
-        descanso: "60-90s"
+        descanso: "90s"
         detalles:
           - peso: "Según capacidad"
             repeticiones: "10 por pierna"
@@ -44,7 +44,7 @@ bloques:
           - peso: "Según capacidad"
             repeticiones: "10 por pierna"
       - nombre: "Sentadilla búlgara con mancuernas"
-        descanso: "60-90s"
+        descanso: "90s"
         detalles:
           - peso: "Según capacidad"
             repeticiones: "10 por pierna"
@@ -80,7 +80,7 @@ bloques:
   - nombre: "Trabajo de Core (5-10 min)"
     ejercicios:
       - nombre: "Plancha lateral con elevación de pierna"
-        descanso: "N/A"
+        descanso: "60s"
         detalles:
           - peso: "N/A"
             repeticiones: "30 segundos por lado"
@@ -89,7 +89,7 @@ bloques:
           - peso: "N/A"
             repeticiones: "30 segundos por lado"
       - nombre: "Rueda abdominal (ab wheel)"
-        descanso: "N/A"
+        descanso: "60s"
         detalles:
           - peso: "N/A"
             repeticiones: "8-10"
