@@ -2,82 +2,108 @@ nombre: "Entrenamiento de fuerza y explosividad (55 min)"
 bloques:
   - nombre: "Calentamiento (10 min)"
     ejercicios:
-      - nombre: "Bicicleta estática o remo"
-        peso: "N/A"
-        series: 1
-        repeticiones: "5 min"
-        descanso: "Ritmo ligero"
+      - nombre: "Bicicleta estática o remo ritmo ligero"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "5 min"
       - nombre: "Ejercicios de movilidad"
-        peso: "N/A"
-        series: 1
-        repeticiones: "5 min"
         descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "5 min"
       - nombre: "Sentadillas sin peso"
-        peso: "Peso corporal"
-        series: 2
-        repeticiones: 10
         descanso: "N/A"
+        detalles:
+          - peso: "Peso corporal"
+            repeticiones: 10
+          - peso: "Peso corporal"
+            repeticiones: 10
       - nombre: "Balanceo de pierna delante-detrás y lateral"
-        peso: "N/A"
-        series: 1
-        repeticiones: 10
         descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "10 por pierna"
       - nombre: "Rotaciones de cadera y tobillo"
-        peso: "N/A"
-        series: 1
-        repeticiones: "N/A"
         descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "N/A"
 
   - nombre: "Bloque principal (35-40 min)"
     ejercicios:
       - nombre: "Sentadilla con barra"
-        peso: "Según capacidad"
-        series: 3
-        repeticiones: "8-10"
         descanso: "90s"
+        detalles:
+          - peso: "Según capacidad"
+            repeticiones: "8-10"
+          - peso: "Según capacidad"
+            repeticiones: "8-10"
+          - peso: "Según capacidad"
+            repeticiones: "8-10"
       - nombre: "Zancadas con mancuernas"
-        peso: "Según capacidad"
-        series: 3
-        repeticiones: "8-10 por pierna"
         descanso: "90s"
+        detalles:
+          - peso: "Según capacidad"
+            repeticiones: "8-10 por pierna"
+          - peso: "Según capacidad"
+            repeticiones: "8-10 por pierna"
+          - peso: "Según capacidad"
+            repeticiones: "8-10 por pierna"
       - nombre: "Saltos pliométricos (caja o verticales)"
-        peso: "N/A"
-        series: 3
-        repeticiones: "6-8"
         descanso: "90s"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "6-8"
+          - peso: "N/A"
+            repeticiones: "6-8"
+          - peso: "N/A"
+            repeticiones: "6-8"
       - nombre: "Hip thrust con barra"
-        peso: "Según capacidad"
-        series: 3
-        repeticiones: "8-10"
         descanso: "90s"
+        detalles:
+          - peso: "Según capacidad"
+            repeticiones: "8-10"
+          - peso: "Según capacidad"
+            repeticiones: "8-10"
+          - peso: "Según capacidad"
+            repeticiones: "8-10"
 
   - nombre: "Trabajo de Core (5-10 min)"
     ejercicios:
       - nombre: "Plancha lateral"
-        peso: "N/A"
-        series: 3
-        repeticiones: "30 segundos por lado"
         descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "30 segundos por lado"
+          - peso: "N/A"
+            repeticiones: "30 segundos por lado"
+          - peso: "N/A"
+            repeticiones: "30 segundos por lado"
       - nombre: "Crunch con polea"
-        peso: "Según capacidad"
-        series: 3
-        repeticiones: "12-15"
         descanso: "N/A"
+        detalles:
+          - peso: "Según capacidad"
+            repeticiones: "12-15"
+          - peso: "Según capacidad"
+            repeticiones: "12-15"
+          - peso: "Según capacidad"
+            repeticiones: "12-15"
 
   - nombre: "Estiramiento (5 min)"
     ejercicios:
       - nombre: "Piernas"
-        peso: "N/A"
-        series: 1
-        repeticiones: "N/A"
         descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "N/A"
       - nombre: "Glúteos"
-        peso: "N/A"
-        series: 1
-        repeticiones: "N/A"
         descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "N/A"
       - nombre: "Core"
-        peso: "N/A"
-        series: 1
-        repeticiones: "N/A"
         descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "N/A"
