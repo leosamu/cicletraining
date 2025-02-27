@@ -39,3 +39,12 @@
             font-size: 20px;
             margin-left: 10px;
         }
+        @media (min-width: 992px) {
+            main {
+                margin-left: 300px; /* Espacio para el menú */
+            }
+        }
+        /* Asegurar que el botón del menú sea visible en pantallas grandes */
+        .sidenav-trigger {
+            display: block !important;
+        }
