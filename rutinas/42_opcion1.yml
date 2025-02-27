@@ -2,8 +2,8 @@ nombre: "Entrenamiento de fuerza - piernas y core (55 min)"
 bloques:
   - nombre: "Calentamiento (10 min)"
     ejercicios:
-      - nombre: "Bicicleta estática o remo"
-        descanso: "Ritmo ligero"
+      - nombre: "Bicicleta estática o remo ritmo ligero"
+        descanso: "N/A"
         detalles:
           - peso: "N/A"
             repeticiones: "5 min"
@@ -33,7 +33,7 @@ bloques:
   - nombre: "Bloque principal (35-40 min)"
     ejercicios:
       - nombre: "Sentadilla trasera"
-        descanso: "90s-2min"
+        descanso: "90s"
         detalles:
           - peso: "Según capacidad"
             repeticiones: "5"
@@ -44,7 +44,7 @@ bloques:
           - peso: "Según capacidad"
             repeticiones: "5"
       - nombre: "Peso muerto"
-        descanso: "90s-2min"
+        descanso: "90s"
         detalles:
           - peso: "Según capacidad"
             repeticiones: "5"
@@ -76,7 +76,7 @@ bloques:
   - nombre: "Trabajo de Core (5-10 min)"
     ejercicios:
       - nombre: "Plancha con peso"
-        descanso: "N/A"
+        descanso: "60s"
         detalles:
           - peso: "Según capacidad"
             repeticiones: "30-40 segundos"
@@ -85,7 +85,7 @@ bloques:
           - peso: "Según capacidad"
             repeticiones: "30-40 segundos"
       - nombre: "Elevaciones de piernas colgado o en suelo"
-        descanso: "N/A"
+        descanso: "60s"
         detalles:
           - peso: "N/A"
             repeticiones: "10-12"
