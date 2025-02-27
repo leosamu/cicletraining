@@ -1,0 +1,62 @@
+nombre: "Salida corta (1.5 - 2.5h)"
+bloques:
+  - nombre: "Calentamiento (10 min)"
+    ejercicios:
+      - nombre: "Pedaleo suave"
+        descanso: "Ritmo fácil"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "5 min"
+      - nombre: "Progresión de intensidad"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "10 min"
+
+  - nombre: "Bloque principal (40-50 min)"
+    ejercicios:
+      - nombre: "Fase 1: Intervalos de potencia"
+        descanso: "2-3 min recuperación"
+        detalles:
+          - peso: "85-90% de FTP"
+            repeticiones: "4x10 min"
+          - peso: "Máxima intensidad en subidas"
+            repeticiones: "2-3 min"
+      - nombre: "Fase 2: Recuperación activa"
+        descanso: "N/A"
+        detalles:
+          - peso: "Ritmo cómodo"
+            repeticiones: "20-30 min"
+          - peso: "Sprints suaves"
+            repeticiones: "10-15 min (20s sprint / 40s descanso)"
+
+  - nombre: "Trabajo de Core (5-10 min)"
+    ejercicios:
+      - nombre: "Pedaleo suave"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "5-10 min"
+
+  - nombre: "Estiramiento (5 min)"
+    ejercicios:
+      - nombre: "Cuádriceps"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "N/A"
+      - nombre: "Isquiotibiales"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "N/A"
+      - nombre: "Gemelos"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "N/A"
+      - nombre: "Flexores de cadera"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "N/A"
