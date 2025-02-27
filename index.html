@@ -5,26 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seguimiento de Entrenamiento</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>    
 </head>
 <body>
-    <nav>
-        <div class="nav-wrapper blue">
+    <nav class="blue">
+        <div class="nav-wrapper">
             <a href="#" class="brand-logo center">Entrenamiento</a>
-            <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="#" onclick="seleccionarEntrenamiento('4+2')">Fase1 (4+2)</a></li>
-                <li><a href="#" onclick="seleccionarEntrenamiento('2+1')">Fase1 (2+1)</a></li>
-            </ul>
+            <a href="#" data-target="mobile-menu" class="sidenav-trigger">
+                <i class="material-icons">menu</i>
+            </a>
         </div>
     </nav>
     
     <!-- Menú hamburguesa para dispositivos móviles -->
-    <ul class="sidenav" id="mobile-menu">
+    <!-- <ul class="sidenav" id="mobile-menu">
         <li><a href="#" onclick="seleccionarEntrenamiento('4+2')">Fase1 (4+2)</a></li>
         <li><a href="#" onclick="seleccionarEntrenamiento('2+1')">Fase1 (2+1)</a></li>
+    </ul> -->
+
+      <!-- Menú lateral tipo acordeón -->
+      <ul class="sidenav collapsible" id="mobile-menu">
+        <li>
+            <div class="collapsible-header"><i class="material-icons">fitness_center</i>Fase 1 (4+2)</div>
+            <div class="collapsible-body">
+                <ul>
+                    <li><a href="#" onclick="cargarRutina('4+2', 'Opción 1')">Lunes</a></li>
+                    <li><a href="#" onclick="cargarRutina('4+2', 'Opción 2')">Martes</a></li>
+                    <li><a href="#" onclick="cargarRutina('4+2', 'Opción 3')">Miercoles</a></li>
+                    <li><a href="#" onclick="cargarRutina('4+2', 'Opción 4')">Jueves</a></li>
+                    <li><a href="#" onclick="cargarRutina('4+2', 'Opción 5')">Sabado</a></li>
+                    <li><a href="#" onclick="cargarRutina('4+2', 'Opción 6')">Domingo</a></li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header"><i class="material-icons">fitness_center</i>Fase 1 (2+1)</div>
+            <div class="collapsible-body">
+                <ul>
+                    <li><a href="#" onclick="cargarRutina('2+1', 'Opción 1')">Lunes</a></li>
+                    <li><a href="#" onclick="cargarRutina('2+1', 'Opción 2')">Miercoles</a></li>
+                    <li><a href="#" onclick="cargarRutina('2+1', 'Opción 3')">Sábado</a></li>
+                </ul>
+            </div>
+        </li>
     </ul>
 
 
@@ -45,11 +71,14 @@
         let intervalos = {};
         
         document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.sidenav');
-            M.Sidenav.init(elems);
+            var sidenavElems = document.querySelectorAll('.sidenav');
+            M.Sidenav.init(sidenavElems);
+            
+            var collapsibleElems = document.querySelectorAll('.collapsible');
+            M.Collapsible.init(collapsibleElems);
         });
         
-        function seleccionarEntrenamiento(tipo) {
+        /* function seleccionarEntrenamiento(tipo) {
             document.getElementById('menu-rutina').classList.remove('hidden');
             document.getElementById('opciones-rutina').innerHTML = '';
             
@@ -62,11 +91,12 @@
                 item.onclick = () => cargarRutina(tipo, opcion);
                 document.getElementById('opciones-rutina').appendChild(item);
             });
-        }
+        } */
 
         function cargarRutina(tipo, opcion) {
             document.getElementById('rutina').classList.remove('hidden');
-            document.getElementById('contenido-rutina').innerHTML = `<p>Cargando rutina ${tipo} - ${opcion}...</p>`;
+            document.getElementById('contenido-rutina').innerHTML = `<p>Cargando contenido de ${opcion}...</p>`;
+
             
             archivoActual = `rutinas/${tipo.replace('+', '')}_opcion${opcion.split(' ')[1]}.yml`;
             let storedData = localStorage.getItem(archivoActual);
@@ -87,8 +117,8 @@
                         console.error("Error cargando el archivo YAML: ", error);
                     });
             }
-            document.getElementById('menu-rutina').classList.add('hidden')
-            document.getElementById('opciones-rutina').innerHTML = '';
+            let instance = M.Sidenav.getInstance(document.getElementById('mobile-menu'));
+            instance.close();
         }
 
         function resetearRutina() {
