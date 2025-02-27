@@ -1,0 +1,122 @@
+nombre: "Explosividad y resistencia - piernas y core (55 min)"
+bloques:
+  - nombre: "Calentamiento (10 min)"
+    ejercicios:
+      - nombre: "Bicicleta estática o remo"
+        descanso: "Ritmo medio"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "5 min"
+      - nombre: "Ejercicios de movilidad"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "5 min"
+      - nombre: "Sentadillas con salto"
+        descanso: "N/A"
+        detalles:
+          - peso: "Peso corporal"
+            repeticiones: 10
+          - peso: "Peso corporal"
+            repeticiones: 10
+      - nombre: "Balanceo de pierna delante-detrás y lateral"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "10 por pierna"
+      - nombre: "Zancadas dinámicas con rotación de tronco"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "8 por pierna"
+          - peso: "N/A"
+            repeticiones: "8 por pierna"
+
+  - nombre: "Bloque principal (35-40 min)"
+    ejercicios:
+      - nombre: "Subidas al cajón con peso"
+        descanso: "60-90s"
+        detalles:
+          - peso: "Según capacidad"
+            repeticiones: "10 por pierna"
+          - peso: "Según capacidad"
+            repeticiones: "10 por pierna"
+          - peso: "Según capacidad"
+            repeticiones: "10 por pierna"
+      - nombre: "Sentadilla búlgara con mancuernas"
+        descanso: "60-90s"
+        detalles:
+          - peso: "Según capacidad"
+            repeticiones: "10 por pierna"
+          - peso: "Según capacidad"
+            repeticiones: "10 por pierna"
+          - peso: "Según capacidad"
+            repeticiones: "10 por pierna"
+      - nombre: "Saltos en profundidad (plyo box drop)"
+        descanso: "60s"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "6"
+          - peso: "N/A"
+            repeticiones: "6"
+          - peso: "N/A"
+            repeticiones: "6"
+      - nombre: "Sprints en rodillo o bici estática"
+        descanso: "40s recuperación"
+        detalles:
+          - peso: "Máxima intensidad"
+            repeticiones: "20 segundos"
+          - peso: "Máxima intensidad"
+            repeticiones: "20 segundos"
+          - peso: "Máxima intensidad"
+            repeticiones: "20 segundos"
+          - peso: "Máxima intensidad"
+            repeticiones: "20 segundos"
+          - peso: "Máxima intensidad"
+            repeticiones: "20 segundos"
+          - peso: "Máxima intensidad"
+            repeticiones: "20 segundos"
+
+  - nombre: "Trabajo de Core (5-10 min)"
+    ejercicios:
+      - nombre: "Plancha lateral con elevación de pierna"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "30 segundos por lado"
+          - peso: "N/A"
+            repeticiones: "30 segundos por lado"
+          - peso: "N/A"
+            repeticiones: "30 segundos por lado"
+      - nombre: "Rueda abdominal (ab wheel)"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "8-10"
+          - peso: "N/A"
+            repeticiones: "8-10"
+          - peso: "N/A"
+            repeticiones: "8-10"
+
+  - nombre: "Estiramiento (5 min)"
+    ejercicios:
+      - nombre: "Cuádriceps"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "N/A"
+      - nombre: "Isquiotibiales"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "N/A"
+      - nombre: "Gemelos"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "N/A"
+      - nombre: "Flexores de cadera"
+        descanso: "N/A"
+        detalles:
+          - peso: "N/A"
+            repeticiones: "N/A"
